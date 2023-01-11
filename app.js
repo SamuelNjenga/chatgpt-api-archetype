@@ -11,6 +11,13 @@ const morgan = require("morgan");
 const path = require("path");
 
 /**
+ * Setup Swagger
+ */
+
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
+
+/**
  *
  * Use gzip compression
  */
@@ -36,6 +43,8 @@ const cors = require("cors");
  * rate limiter
  */
 const rateLimit = require("express-rate-limit");
+
+// const options = require("./src/main/utils/swagger");
 
 /**
  * Routes
@@ -80,5 +89,22 @@ app.use("/api/v1/", routes);
 
 // import etag from 'etag';
 // res.setHeader('ETag', etag(body));
+
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "CHAT GPT API",
+      version: "1.0.0",
+      description: "Express js, Chat GPT API",
+    },
+    servers: [{ url: "http://localhost:5001" }],
+  },
+  apis: [`./src/main/routes/*.js`],
+};
+
+const specs = swaggerJsDoc(options);
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
 module.exports = app;
