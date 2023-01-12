@@ -74,6 +74,26 @@ router.post("/", userController.createUser);
  *         $ref: '#/components/schemas/User'
  */
 router.get("/", userController.getUsers);
+
+/**
+ * @swagger
+ * /users/{id}:
+ *  delete:
+ *   summary: Remove the user by id
+ *   tags: [Users]
+ *   parameters:
+ *    - in: path
+ *      name: id
+ *      schema:
+ *       type: integer
+ *      required: true
+ *      description: The user id
+ *   responses:
+ *     200:
+ *      description: The user was deleted
+ *     404:
+ *      description: The user was not found
+ */
 router.delete("/:id", userController.deleteUser);
 
 /**

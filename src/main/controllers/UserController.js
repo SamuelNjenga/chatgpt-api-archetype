@@ -84,7 +84,7 @@ exports.deleteUser = async (req, res, next) => {
 
     if (!user) {
       await transaction.commit();
-      return res.status(200).json({
+      return res.status(404).json({
         message: `User ${userId} does not exist in our database`,
       });
     }
