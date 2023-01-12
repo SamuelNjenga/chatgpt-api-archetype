@@ -31,6 +31,31 @@ const router = Router();
  *  description: The users managing API
  */
 
+/**
+ * @swagger
+ * /users:
+ *   post:
+ *     summary: Create a new user
+ *     tags: [Users]
+ *     requestBody:
+ *        required: true
+ *        content:
+ *          application/json:
+ *            schema:
+ *               type: object
+ *               properties:
+ *                name:
+ *                 type: string
+ *     responses:
+ *        201:
+ *          description: The user was successfully created
+ *          content:
+ *            application/json:
+ *               schema:
+ *                  $ref: '#/components/schemas/User'
+ *        500:
+ *           description: Some server error
+ */
 router.post("/", userController.createUser);
 /**
  * @swagger
