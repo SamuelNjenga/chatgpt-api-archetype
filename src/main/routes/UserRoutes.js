@@ -23,6 +23,14 @@ const router = Router();
  *     id: 1
  *     name: Sam Njenga
  */
+
+/**
+ * @swagger
+ * tags:
+ *  name: Users
+ *  description: The users managing API
+ */
+
 router.post("/", userController.createUser);
 router.get("/", userController.getUsers);
 router.delete("/:id", userController.deleteUser);
