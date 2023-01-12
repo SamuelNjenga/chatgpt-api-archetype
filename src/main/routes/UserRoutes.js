@@ -75,6 +75,41 @@ router.post("/", userController.createUser);
  */
 router.get("/", userController.getUsers);
 router.delete("/:id", userController.deleteUser);
+
+/**
+ * @swagger
+ * /users/{id}:
+ *  put:
+ *   summary: Update the user by the id
+ *   tags: [Users]
+ *   parameters:
+ *    - in: path
+ *      name: id
+ *      schema:
+ *       type: integer
+ *      required: true
+ *      description: The user id
+ *   requestBody:
+ *     required: true
+ *     content:
+ *      application/json:
+ *       schema:
+ *        type: object
+ *        properties:
+ *         name:
+ *           type: string
+ *   responses:
+ *     200:
+ *      description: The user was updated
+ *      content:
+ *       application/json:
+ *        schema:
+ *         $ref: '#/components/schemas/User'
+ *     404:
+ *      description: The user was not found
+ *     500:
+ *      description: Some error happened
+ */
 router.put("/:id", userController.updateUser);
 
 module.exports = router;
