@@ -32,6 +32,22 @@ const router = Router();
  */
 
 router.post("/", userController.createUser);
+/**
+ * @swagger
+ * /users:
+ *  get:
+ *   summary: Returns the list of all the users
+ *   tags: [Users]
+ *   responses:
+ *    200:
+ *     description: The list of the users
+ *     content:
+ *      application/json:
+ *       schema:
+ *        type: array
+ *        items:
+ *         $ref: '#/components/schemas/User'
+ */
 router.get("/", userController.getUsers);
 router.delete("/:id", userController.deleteUser);
 router.put("/:id", userController.updateUser);

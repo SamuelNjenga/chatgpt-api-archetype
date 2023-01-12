@@ -98,7 +98,7 @@ const options = {
       version: "1.0.0",
       description: "Express js, Chat GPT API",
     },
-    servers: [{ url: "http://localhost:5001" }],
+    servers: [{ url: "http://localhost:5001/api/v1" }],
   },
   apis: [`./src/main/routes/*.js`],
 };
