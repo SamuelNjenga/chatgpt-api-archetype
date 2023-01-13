@@ -9,6 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Room.hasMany(models.Message, {
+        onDelete: "restrict",
+        foreignKey: {
+          name: "roomId",
+          allowNull: false,
+        },
+      });
     }
   }
   Room.init(
