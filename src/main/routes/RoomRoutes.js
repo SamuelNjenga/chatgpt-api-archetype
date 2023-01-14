@@ -22,6 +22,20 @@ const router = Router();
  *    example:
  *     id: 1
  *     name: Express JS Discussion
+ *  requestBodies:
+ *   RoomBody:
+ *    description: A JSON object containing room information
+ *    required: true
+ *    content:
+ *      application/json:
+ *        schema:
+ *         type: object
+ *         properties:
+ *          name:
+ *           type: string
+ *        example:
+ *         name: The Express JS Room
+ *
  */
 
 /**
@@ -38,16 +52,7 @@ const router = Router();
  *     summary: Create a new room
  *     tags: [Rooms]
  *     requestBody:
- *        required: true
- *        content:
- *          application/json:
- *            schema:
- *               type: object
- *               properties:
- *                name:
- *                 type: string
- *            example:
- *             name: The Express JS Room
+ *      $ref: '#/components/requestBodies/RoomBody'
  *     responses:
  *        201:
  *          description: The room was successfully added
@@ -112,16 +117,7 @@ router.delete("/:id", roomController.deleteroom);
  *      required: true
  *      description: The room id
  *   requestBody:
- *     required: true
- *     content:
- *      application/json:
- *       schema:
- *        type: object
- *        properties:
- *         name:
- *           type: string
- *       example:
- *        name: The Express JS Room
+ *    $ref: '#/components/requestBodies/RoomBody'
  *   responses:
  *     200:
  *      description: The room was updated

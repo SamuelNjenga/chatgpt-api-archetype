@@ -32,6 +32,25 @@ const router = Router();
  *     message: How can I rate limit in Express Js?
  *     userId: 2
  *     roomId: 3
+ *  requestBodies:
+ *   MessageBody:
+ *    description: A JSON object containing message information
+ *    required: true
+ *    content:
+ *      application/json:
+ *        schema:
+ *         type: object
+ *         properties:
+ *          message:
+ *           type: string
+ *          roomId:
+ *           type: integer
+ *          userId:
+ *           type: integer
+ *        example:
+ *         message: How do I rate limit in Express JS?
+ *         roomId: 2
+ *         userId: 1
  */
 
 /**
@@ -48,22 +67,7 @@ const router = Router();
  *     summary: Create a new message
  *     tags: [Messages]
  *     requestBody:
- *        required: true
- *        content:
- *          application/json:
- *            schema:
- *               type: object
- *               properties:
- *                message:
- *                 type: string
- *                roomId:
- *                 type: integer
- *                userId:
- *                 type: integer
- *            example:
- *             message: How do you rate limit in Express JS?
- *             roomId: 4
- *             userId: 1
+ *      $ref: '#/components/requestBodies/MessageBody'
  *     responses:
  *        201:
  *          description: The message was successfully created
@@ -128,22 +132,7 @@ router.delete("/:id", messageController.deleteMessage);
  *      required: true
  *      description: The message id
  *   requestBody:
- *     required: true
- *     content:
- *      application/json:
- *       schema:
- *        type: object
- *        properties:
- *         name:
- *           type: string
- *         roomId:
- *           type: integer
- *         userId:
- *           type: integer
- *       example:
- *        message: How do you rate limit in Express JS?
- *        roomId: 4
- *        userId: 1
+ *    $ref: '#/components/requestBodies/MessageBody'
  *   responses:
  *     200:
  *      description: The message was updated

@@ -22,6 +22,19 @@ const router = Router();
  *    example:
  *     id: 1
  *     name: Sam Njenga
+ *  requestBodies:
+ *   UserBody:
+ *    description: A JSON object containing user information
+ *    required: true
+ *    content:
+ *      application/json:
+ *        schema:
+ *         type: object
+ *         properties:
+ *          name:
+ *           type: string
+ *        example:
+ *         name: Samuel Njenga
  */
 
 /**
@@ -38,16 +51,7 @@ const router = Router();
  *     summary: Create a new user
  *     tags: [Users]
  *     requestBody:
- *        required: true
- *        content:
- *          application/json:
- *            schema:
- *               type: object
- *               properties:
- *                name:
- *                 type: string
- *            example:
- *             name: Samuel Njenga
+ *      $ref: '#/components/requestBodies/UserBody'
  *     responses:
  *        201:
  *          description: The user was successfully created
@@ -112,16 +116,7 @@ router.delete("/:id", userController.deleteUser);
  *      required: true
  *      description: The user id
  *   requestBody:
- *     required: true
- *     content:
- *      application/json:
- *       schema:
- *        type: object
- *        properties:
- *         name:
- *           type: string
- *        example: 
- *         name: Samuel Njenga
+ *    $ref: '#/components/requestBodies/UserBody'
  *   responses:
  *     200:
  *      description: The user was updated
