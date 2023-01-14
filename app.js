@@ -97,6 +97,10 @@ const options = {
       title: "CHAT GPT API",
       version: "1.0.0",
       description: "Express js, Chat GPT API",
+      contact: {
+        name: "API Support",
+        email: "snjenga802@gmail.com",
+      },
     },
     servers: [{ url: "http://localhost:5001/api/v1" }],
   },

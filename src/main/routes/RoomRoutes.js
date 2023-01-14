@@ -46,6 +46,8 @@ const router = Router();
  *               properties:
  *                name:
  *                 type: string
+ *            example:
+ *             name: The Express JS Room
  *     responses:
  *        201:
  *          description: The room was successfully added
@@ -118,6 +120,8 @@ router.delete("/:id", roomController.deleteroom);
  *        properties:
  *         name:
  *           type: string
+ *       example:
+ *        name: The Express JS Room
  *   responses:
  *     200:
  *      description: The room was updated

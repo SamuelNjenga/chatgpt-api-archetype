@@ -46,6 +46,8 @@ const router = Router();
  *               properties:
  *                name:
  *                 type: string
+ *            example:
+ *             name: Samuel Njenga
  *     responses:
  *        201:
  *          description: The user was successfully created
@@ -118,6 +120,8 @@ router.delete("/:id", userController.deleteUser);
  *        properties:
  *         name:
  *           type: string
+ *        example: 
+ *         name: Samuel Njenga
  *   responses:
  *     200:
  *      description: The user was updated

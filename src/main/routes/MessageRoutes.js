@@ -60,6 +60,10 @@ const router = Router();
  *                 type: integer
  *                userId:
  *                 type: integer
+ *            example:
+ *             message: How do you rate limit in Express JS?
+ *             roomId: 4
+ *             userId: 1
  *     responses:
  *        201:
  *          description: The message was successfully created
@@ -136,6 +140,10 @@ router.delete("/:id", messageController.deleteMessage);
  *           type: integer
  *         userId:
  *           type: integer
+ *       example:
+ *        message: How do you rate limit in Express JS?
+ *        roomId: 4
+ *        userId: 1
  *   responses:
  *     200:
  *      description: The message was updated
