@@ -84,6 +84,7 @@ router.post("/", messageController.createMessage);
  * /messages:
  *  get:
  *   summary: Returns the list of all the messages
+ *   description: This resource returns a list of all the messages in the system.
  *   tags: [Messages]
  *   responses:
  *    200:

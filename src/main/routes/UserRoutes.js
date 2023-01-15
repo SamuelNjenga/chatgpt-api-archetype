@@ -68,6 +68,7 @@ router.post("/", userController.createUser);
  * /users:
  *  get:
  *   summary: Returns the list of all the users
+ *   description: This resource returns a list of all the users in the system.
  *   tags: [Users]
  *   responses:
  *    200:

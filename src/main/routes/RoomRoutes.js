@@ -69,6 +69,7 @@ router.post("/", roomController.createRoom);
  * /rooms:
  *  get:
  *   summary: Returns the list of all the rooms
+ *   description: This resource returns a list of all the rooms in the system.
  *   tags: [Rooms]
  *   responses:
  *    200:
