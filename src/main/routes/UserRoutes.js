@@ -87,6 +87,9 @@ router.get("/", userController.getUsers);
  * /users/{id}:
  *  delete:
  *   summary: Remove the user by id
+ *   description: >
+ *    This resource represents a delete operation for a user **in** the system.
+ *    Each user to be deleted **is** identified **by** a numeric**`id`**.
  *   tags: [Users]
  *   parameters:
  *    - in: path

@@ -93,6 +93,9 @@ router.get("/", roomController.getRooms);
  * /rooms/{id}:
  *  delete:
  *   summary: Remove the room by id
+ *   description: >
+ *    This resource represents a delete operation for a room **in** the system.
+ *    Each room to be deleted **is** identified **by** a numeric**`id`**.
  *   tags: [Rooms]
  *   parameters:
  *    - in: path

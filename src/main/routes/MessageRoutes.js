@@ -103,6 +103,9 @@ router.get("/", messageController.getMessages);
  * /messages/{id}:
  *  delete:
  *   summary: Remove the message by id
+ *   description: >
+ *    This resource represents a delete operation for a message **in** the system.
+ *    Each message to be deleted **is** identified **by** a numeric**`id`**.
  *   tags: [Messages]
  *   parameters:
  *    - in: path
