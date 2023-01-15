@@ -79,6 +79,11 @@ router.post("/", roomController.createRoom);
  *        type: array
  *        items:
  *         $ref: '#/components/schemas/Room'
+ *      application/xml:
+ *       schema:
+ *        type: array
+ *        items:
+ *         $ref: '#/components/schemas/Room'
  */
 router.get("/", roomController.getRooms);
 
