@@ -47,10 +47,17 @@ const router = Router();
  *           type: integer
  *          userId:
  *           type: integer
- *        example:
- *         message: How do I rate limit in Express JS?
- *         roomId: 2
- *         userId: 1
+ *        examples:
+ *         Express:
+ *          value:
+ *           message: How do I rate limit in Express JS?
+ *           roomId: 2
+ *           userId: 1
+ *         Java:
+ *          value:
+ *           message: How do I implement linked list in Java?
+ *           roomId: 3
+ *           userId: 1
  */
 
 /**
