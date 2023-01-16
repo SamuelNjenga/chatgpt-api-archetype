@@ -96,6 +96,7 @@ router.get("/", userController.getUsers);
  *      name: id
  *      schema:
  *       type: integer
+ *       example: 2
  *      required: true
  *      description: The user id
  *   responses:
@@ -117,6 +118,7 @@ router.delete("/:id", userController.deleteUser);
  *      name: id
  *      schema:
  *       type: integer
+ *       example: 2
  *      required: true
  *      description: The user id
  *   requestBody:

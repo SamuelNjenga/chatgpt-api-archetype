@@ -112,6 +112,7 @@ router.get("/", messageController.getMessages);
  *      name: id
  *      schema:
  *       type: integer
+ *       example: 2
  *      required: true
  *      description: The message id
  *   responses:
@@ -133,6 +134,7 @@ router.delete("/:id", messageController.deleteMessage);
  *      name: id
  *      schema:
  *       type: integer
+ *       example: 2
  *      required: true
  *      description: The message id
  *   requestBody:

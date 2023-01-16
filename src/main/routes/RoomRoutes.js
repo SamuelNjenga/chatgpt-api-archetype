@@ -102,6 +102,7 @@ router.get("/", roomController.getRooms);
  *      name: id
  *      schema:
  *       type: integer
+ *       example: 2
  *      required: true
  *      description: The room id
  *   responses:
@@ -123,6 +124,7 @@ router.delete("/:id", roomController.deleteroom);
  *      name: id
  *      schema:
  *       type: integer
+ *       example: 2
  *      required: true
  *      description: The room id
  *   requestBody:
