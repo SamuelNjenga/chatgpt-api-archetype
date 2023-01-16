@@ -91,31 +91,6 @@ router.get("/", roomController.getRooms);
 /**
  * @swagger
  * /rooms/{id}:
- *  delete:
- *   summary: Remove the room by id
- *   description: >
- *    This resource represents a delete operation for a room **in** the system.
- *    Each room to be deleted **is** identified **by** a numeric**`id`**.
- *   tags: [Rooms]
- *   parameters:
- *    - in: path
- *      name: id
- *      schema:
- *       type: integer
- *       example: 2
- *      required: true
- *      description: The room id
- *   responses:
- *     200:
- *      description: The room was deleted
- *     404:
- *      description: The room was not found
- */
-router.delete("/:id", roomController.deleteroom);
-
-/**
- * @swagger
- * /rooms/{id}:
  *  put:
  *   summary: Update the room by the id
  *   tags: [Rooms]
@@ -140,7 +115,27 @@ router.delete("/:id", roomController.deleteroom);
  *      description: The room was not found
  *     500:
  *      description: Some error happened
+ *  delete:
+ *   summary: Remove the room by id
+ *   description: >
+ *    This resource represents a delete operation for a room **in** the system.
+ *    Each room to be deleted **is** identified **by** a numeric**`id`**.
+ *   tags: [Rooms]
+ *   parameters:
+ *    - in: path
+ *      name: id
+ *      schema:
+ *       type: integer
+ *       example: 2
+ *      required: true
+ *      description: The room id
+ *   responses:
+ *     200:
+ *      description: The room was deleted
+ *     404:
+ *      description: The room was not found
  */
 router.put("/:id", roomController.updateRoom);
+router.delete("/:id", roomController.deleteroom);
 
 module.exports = router;
