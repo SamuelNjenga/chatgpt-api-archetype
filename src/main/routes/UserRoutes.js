@@ -137,4 +137,11 @@ router.delete("/:id", userController.deleteUser);
  */
 router.put("/:id", userController.updateUser);
 
+/**
+ * @swagger
+ * /users/{id}:
+ *   patch:
+ *     deprecated: true
+ */
+
 module.exports = router;
