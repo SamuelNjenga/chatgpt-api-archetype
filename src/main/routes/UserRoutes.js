@@ -74,7 +74,7 @@ router.post("/", userController.createUser);
  *    200:
  *     description: The list of the users
  *     content:
- *      application/json:
+ *      application/xml:
  *       schema:
  *        type: array
  *        items:
