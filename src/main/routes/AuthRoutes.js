@@ -136,7 +136,73 @@ router.post("/register", authController.registerAdmin);
  */
 
 router.post("/login", authController.login);
+
+/**
+ * @swagger
+ * /auths:
+ *  get:
+ *   summary: Returns the list of all the admins
+ *   description: This resource returns a list of all the admins in the system.
+ *   tags: [Admins]
+ *   responses:
+ *    200:
+ *     description: The list of the admins
+ *     content:
+ *      application/json:
+ *       schema:
+ *        type: array
+ *        items:
+ *         $ref: '#/components/schemas/Admin'
+ */
 router.get("/", authController.getAdmins);
+
+/**
+ * @swagger
+ * /auths/{id}:
+ *  put:
+ *   summary: Update the admin by the id
+ *   tags: [Admins]
+ *   parameters:
+ *    - in: path
+ *      name: id
+ *      schema:
+ *       type: integer
+ *       example: 2
+ *      required: true
+ *      description: The admin id
+ *   requestBody:
+ *    $ref: '#/components/requestBodies/AdminBody'
+ *   responses:
+ *     200:
+ *      description: The admin has been updated
+ *      content:
+ *       application/json:
+ *        schema:
+ *         $ref: '#/components/schemas/Admin'
+ *     404:
+ *      description: The admin was not found
+ *     500:
+ *      description: Some error happened
+ *  delete:
+ *   summary: Remove the admin by id
+ *   description: >
+ *    This resource represents a delete operation for an admin **in** the system.
+ *    Each admin to be deleted **is** identified **by** a numeric**`id`**.
+ *   tags: [Admins]
+ *   parameters:
+ *    - in: path
+ *      name: id
+ *      schema:
+ *       type: integer
+ *       example: 2
+ *      required: true
+ *      description: The admin id
+ *   responses:
+ *     200:
+ *      description: The admin was deleted
+ *     404:
+ *      description: The admin was not found
+ */
 router.delete("/:id", authController.deleteAdmin);
 router.put("/:id", authController.updateAdmin);
 
