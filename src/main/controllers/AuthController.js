@@ -135,7 +135,7 @@ exports.login = async (req, res, next) => {
     if (!validPassword) return next(new Error("Password is not correct"));
     const accessToken = jwt.sign(
       {
-        userId: admin.id,
+        adminId: admin.id,
       },
       process.env.JWT_SECRET
       // {
