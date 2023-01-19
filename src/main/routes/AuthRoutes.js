@@ -29,7 +29,7 @@ const router = Router();
  *      description: The admin's email
  *     password:
  *      type: string
- *      description: The admin's password 
+ *      description: The admin's password
  *    example:
  *     id: 1
  *     firstName: Sam
@@ -74,7 +74,67 @@ const router = Router();
  *  name: Admins
  *  description: The admins managing API
  */
+
+/**
+ * @swagger
+ * /auths/register:
+ *   post:
+ *     summary: Register a new admin
+ *     tags: [Admins]
+ *     requestBody:
+ *      $ref: '#/components/requestBodies/AdminBody'
+ *     responses:
+ *        201:
+ *          description: The admin was successfully created
+ *          content:
+ *            application/json:
+ *               schema:
+ *                  $ref: '#/components/schemas/Admin'
+ *        500:
+ *           description: Some server error
+ */
 router.post("/register", authController.registerAdmin);
+
+/**
+ * @swagger
+ * /auths/login:
+ *   post:
+ *     summary: Log in an admin
+ *     tags: [Admins]
+ *     requestBody:
+ *      description: A JSON object containing login information
+ *      required: true
+ *      content:
+ *       application/json:
+ *        schema:
+ *         type: object
+ *         properties:
+ *          email:
+ *           type: string
+ *          password:
+ *           type: string
+ *     responses:
+ *        200:
+ *          description: The admin logged in successfully
+ *          content:
+ *            application/json:
+ *               schema:
+ *                type: object
+ *               properties:
+ *                email: string
+ *                firstName: string
+ *                id: integer
+ *                accessToken: string
+ *               example:
+ *                data:
+ *                 email: sam@gmail.com
+ *                 password: 12%3$8
+ *                 id: 4
+ *                accessToken: token value
+ *        500:
+ *           description: Some server error
+ */
+
 router.post("/login", authController.login);
 router.get("/", authController.getAdmins);
 router.delete("/:id", authController.deleteAdmin);
