@@ -1,6 +1,7 @@
 const Router = require("express");
 
 const roomController = require("../controllers/RoomController");
+const authentication = require("../middlewares/authentication");
 
 const router = Router();
 
@@ -70,6 +71,12 @@ router.post("/", roomController.createRoom);
  *  get:
  *   summary: Returns the list of all the rooms
  *   description: This resource returns a list of all the rooms in the system.
+ *   parameters:
+ *    - in: header
+ *      name: x-access-token
+ *      schema:
+ *       type: string
+ *      required: true
  *   tags: [Rooms]
  *   responses:
  *    200:
@@ -86,7 +93,7 @@ router.post("/", roomController.createRoom);
  *        items:
  *         $ref: '#/components/schemas/Room'
  */
-router.get("/", roomController.getRooms);
+router.get("/", authentication, roomController.getRooms);
 
 /**
  * @swagger
